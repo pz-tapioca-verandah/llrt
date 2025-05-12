@@ -139,7 +139,7 @@ fn clear_timeout_interval(ctx: Ctx<'_>, id: Opt<Value>) -> Result<()> {
         if let Some(timeout) = state.timers.iter_mut().find(|t| t.id == id) {
             let _ = timeout.callback.take();
             timeout.repeating = false;
-            timeout.deadline = Instant::now() - Duration::from_secs(1);
+            timeout.deadline = Instant::now() - Duration::from_nanos(1);
             state.notify.notify_one()
         }
     }
