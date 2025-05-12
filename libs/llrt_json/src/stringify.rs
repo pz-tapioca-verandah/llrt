@@ -317,8 +317,15 @@ fn detect_circular_reference(
     ancestors: &mut Vec<(usize, Rc<str>)>,
     itoa_buffer: &mut itoa::Buffer,
 ) -> Result<()> {
+    #[cfg(not(target_arch = "wasm32"))]
     let parent_ptr = unsafe { parent.unwrap_unchecked().as_raw().u.ptr as usize };
+    #[cfg(not(target_arch = "wasm32"))]
     let current_ptr = unsafe { value.as_raw().u.ptr as usize };
+
+    #[cfg(target_arch = "wasm32")]
+    let parent_ptr = unsafe { parent.unwrap_unchecked().as_raw() as usize };
+    #[cfg(target_arch = "wasm32")]
+    let current_ptr = value.as_raw() as usize;
 
     while !ancestors.is_empty()
         && match ancestors.last() {
