@@ -19,8 +19,8 @@ all-rust = ["brotli-rust", "flate2-rust", "zstd-rust"]
 brotli-c = ["brotlic"]
 brotli-rust = ["brotli"]
 
-flate2-c = ["flate2/zlib-ng"]
-flate2-rust = ["flate2/miniz_oxide"]
+flate2-c = ["dep:flate2"]
+flate2-rust = ["dep:flate2"]
 
 zstd-c = ["zstd"]
 zstd-rust = ["zstd"] # No pure rust implementation exists
@@ -28,5 +28,5 @@ zstd-rust = ["zstd"] # No pure rust implementation exists
 [dependencies]
 brotlic = { version = "0.8", optional = true }
 brotli = { version = "8", optional = true }
-flate2 = { version = "1", default-features = false, optional = true }
+flate2 = { version = "1", optional = true }
 zstd = { version = "0.13", default-features = false, optional = true }
