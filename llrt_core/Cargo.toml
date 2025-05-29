@@ -39,7 +39,7 @@ once_cell = "1"
 phf = "0.11"
 quick-xml = "0.37"
 ring = "0.17"
-rquickjs = { git = "https://github.com/DelSkayn/rquickjs.git", version = "0.9.0", features = [
+rquickjs = { git = "https://github.com/DelSkayn/rquickjs.git", rev = "3394aa3128dc2d8e73c6fc8bb064a9d48c0680ff", features = [
   "full-async",
   "parallel",
   "rust-alloc",
@@ -75,7 +75,7 @@ md-5 = { version = "0.10" }
 md-5 = { version = "0.10", features = ["asm"] }
 
 [build-dependencies]
-rquickjs = { git = "https://github.com/DelSkayn/rquickjs.git", version = "0.9.0", features = [
+rquickjs = { git = "https://github.com/DelSkayn/rquickjs.git", rev = "3394aa3128dc2d8e73c6fc8bb064a9d48c0680ff", features = [
   "full-async",
   "rust-alloc",
 ], default-features = false }
